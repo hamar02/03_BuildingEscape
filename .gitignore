@@ -1,3 +1,4 @@
+
 #Unreal Generated Files
 #######################
 */Binaries/
@@ -15,3 +16,4 @@ BuildingEscape/Content/StarterContent/
 #VS Generated Files
 #######################
 *.VC.db
+*/.vs/
