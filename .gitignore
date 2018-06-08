@@ -5,11 +5,11 @@
 
 */Build/
 
-*/Intermediate/AssetRegistryCache/
-*/Intermediate/ReimportCache/
-*/Intermediate/Build/
-*/Intermediate/Config/
-!*/Intermediate/ProjectFiles/
+#*/Intermediate/AssetRegistryCache/
+#*/Intermediate/ReimportCache/
+#*/Intermediate/Build/
+#*/Intermediate/Config/
+#!*/Intermediate/ProjectFiles/
 
 */Saved/
 
