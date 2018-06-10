@@ -19,8 +19,8 @@ void EmptyLinkFunctionForGeneratedCodeBuildingEscape_init() {}
 			static const UE4CodeGen_Private::FPackageParams PackageParams = {
 				"/Script/BuildingEscape",
 				PKG_CompiledIn | 0x00000000,
-				0x4075FEB6,
-				0x948978FF,
+				0x9DEAD82A,
+				0x9AE9C084,
 				nullptr, 0,
 				METADATA_PARAMS(nullptr, 0)
 			};

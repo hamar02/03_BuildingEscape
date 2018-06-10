@@ -30,10 +30,24 @@ public:
 	// Called every frame
 	virtual void TickComponent(float DeltaTime, ELevelTick TickType, FActorComponentTickFunction* ThisTickFunction) override;
 
+	void CloseDoor();
+
 private:
 	UPROPERTY(EditAnywhere)
 	ATriggerVolume* pressurePlate = nullptr;
 	
-	AActor* player = nullptr;
+	UPROPERTY(EditAnywhere)
+	float doorCloseDelay = 1.f;
+	float lastDoorOpenTime;
 
+	AActor* owner = nullptr;
+	AActor* player = nullptr;
+	FRotator openRotation;
+	FRotator closeRotation;
+
+	UPROPERTY(EditAnywhere)
+	float doorAngle = 90.f;
+
+	UPROPERTY(EditAnywhere)
+	bool reverseOpenAngle = false;
 };

@@ -4,18 +4,13 @@
 */Binaries/
 
 */Build/
-
-#*/Intermediate/AssetRegistryCache/
-#*/Intermediate/ReimportCache/
-#*/Intermediate/Build/
-#*/Intermediate/Config/
-#!*/Intermediate/ProjectFiles/
-
 */Saved/
 
 */DerivedDataCache/
 
-BuildingEscape/Content/StarterContent/
+BuildingEscape/Content/StarterContent/Textures
+BuildingEscape/Content/StarterContent/HDRI
+
 
 #VS Generated Files
 #######################

@@ -17,7 +17,6 @@ void EmptyLinkFunctionForGeneratedCodeOpenDoor() {}
 	BUILDINGESCAPE_API UClass* Z_Construct_UClass_UOpenDoor();
 	ENGINE_API UClass* Z_Construct_UClass_UActorComponent();
 	UPackage* Z_Construct_UPackage__Script_BuildingEscape();
-	ENGINE_API UClass* Z_Construct_UClass_AActor_NoRegister();
 	ENGINE_API UClass* Z_Construct_UClass_ATriggerVolume_NoRegister();
 // End Cross Module References
 	void UOpenDoor::StaticRegisterNativesUOpenDoor()
@@ -45,12 +44,27 @@ void EmptyLinkFunctionForGeneratedCodeOpenDoor() {}
 			};
 #endif
 #if WITH_METADATA
-			static const UE4CodeGen_Private::FMetaDataPairParam NewProp_player_MetaData[] = {
+			static const UE4CodeGen_Private::FMetaDataPairParam NewProp_reverseOpenAngle_MetaData[] = {
 				{ "Category", "OpenDoor" },
 				{ "ModuleRelativePath", "OpenDoor.h" },
 			};
 #endif
-			static const UE4CodeGen_Private::FObjectPropertyParams NewProp_player = { UE4CodeGen_Private::EPropertyClass::Object, "player", RF_Public|RF_Transient|RF_MarkAsNative, 0x0040000000000001, 1, nullptr, STRUCT_OFFSET(UOpenDoor, player), Z_Construct_UClass_AActor_NoRegister, METADATA_PARAMS(NewProp_player_MetaData, ARRAY_COUNT(NewProp_player_MetaData)) };
+			auto NewProp_reverseOpenAngle_SetBit = [](void* Obj){ ((UOpenDoor*)Obj)->reverseOpenAngle = 1; };
+			static const UE4CodeGen_Private::FBoolPropertyParams NewProp_reverseOpenAngle = { UE4CodeGen_Private::EPropertyClass::Bool, "reverseOpenAngle", RF_Public|RF_Transient|RF_MarkAsNative, 0x0040000000000001, 1, nullptr, sizeof(bool), UE4CodeGen_Private::ENativeBool::Native, sizeof(UOpenDoor), &UE4CodeGen_Private::TBoolSetBitWrapper<decltype(NewProp_reverseOpenAngle_SetBit)>::SetBit, METADATA_PARAMS(NewProp_reverseOpenAngle_MetaData, ARRAY_COUNT(NewProp_reverseOpenAngle_MetaData)) };
+#if WITH_METADATA
+			static const UE4CodeGen_Private::FMetaDataPairParam NewProp_doorAngle_MetaData[] = {
+				{ "Category", "OpenDoor" },
+				{ "ModuleRelativePath", "OpenDoor.h" },
+			};
+#endif
+			static const UE4CodeGen_Private::FFloatPropertyParams NewProp_doorAngle = { UE4CodeGen_Private::EPropertyClass::Float, "doorAngle", RF_Public|RF_Transient|RF_MarkAsNative, 0x0040000000000001, 1, nullptr, STRUCT_OFFSET(UOpenDoor, doorAngle), METADATA_PARAMS(NewProp_doorAngle_MetaData, ARRAY_COUNT(NewProp_doorAngle_MetaData)) };
+#if WITH_METADATA
+			static const UE4CodeGen_Private::FMetaDataPairParam NewProp_doorCloseDelay_MetaData[] = {
+				{ "Category", "OpenDoor" },
+				{ "ModuleRelativePath", "OpenDoor.h" },
+			};
+#endif
+			static const UE4CodeGen_Private::FFloatPropertyParams NewProp_doorCloseDelay = { UE4CodeGen_Private::EPropertyClass::Float, "doorCloseDelay", RF_Public|RF_Transient|RF_MarkAsNative, 0x0040000000000001, 1, nullptr, STRUCT_OFFSET(UOpenDoor, doorCloseDelay), METADATA_PARAMS(NewProp_doorCloseDelay_MetaData, ARRAY_COUNT(NewProp_doorCloseDelay_MetaData)) };
 #if WITH_METADATA
 			static const UE4CodeGen_Private::FMetaDataPairParam NewProp_pressurePlate_MetaData[] = {
 				{ "Category", "OpenDoor" },
@@ -59,7 +73,9 @@ void EmptyLinkFunctionForGeneratedCodeOpenDoor() {}
 #endif
 			static const UE4CodeGen_Private::FObjectPropertyParams NewProp_pressurePlate = { UE4CodeGen_Private::EPropertyClass::Object, "pressurePlate", RF_Public|RF_Transient|RF_MarkAsNative, 0x0040000000000001, 1, nullptr, STRUCT_OFFSET(UOpenDoor, pressurePlate), Z_Construct_UClass_ATriggerVolume_NoRegister, METADATA_PARAMS(NewProp_pressurePlate_MetaData, ARRAY_COUNT(NewProp_pressurePlate_MetaData)) };
 			static const UE4CodeGen_Private::FPropertyParamsBase* const PropPointers[] = {
-				(const UE4CodeGen_Private::FPropertyParamsBase*)&NewProp_player,
+				(const UE4CodeGen_Private::FPropertyParamsBase*)&NewProp_reverseOpenAngle,
+				(const UE4CodeGen_Private::FPropertyParamsBase*)&NewProp_doorAngle,
+				(const UE4CodeGen_Private::FPropertyParamsBase*)&NewProp_doorCloseDelay,
 				(const UE4CodeGen_Private::FPropertyParamsBase*)&NewProp_pressurePlate,
 			};
 			static const FCppClassTypeInfoStatic StaticCppClassTypeInfo = {
@@ -80,7 +96,7 @@ void EmptyLinkFunctionForGeneratedCodeOpenDoor() {}
 		}
 		return OuterClass;
 	}
-	IMPLEMENT_CLASS(UOpenDoor, 688401460);
+	IMPLEMENT_CLASS(UOpenDoor, 17310525);
 	static FCompiledInDefer Z_CompiledInDefer_UClass_UOpenDoor(Z_Construct_UClass_UOpenDoor, &UOpenDoor::StaticClass, TEXT("/Script/BuildingEscape"), TEXT("UOpenDoor"), false, nullptr, nullptr, nullptr);
 	DEFINE_VTABLE_PTR_HELPER_CTOR(UOpenDoor);
 PRAGMA_ENABLE_DEPRECATION_WARNINGS
