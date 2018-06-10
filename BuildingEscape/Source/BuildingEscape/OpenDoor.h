@@ -4,13 +4,14 @@
 
 #include "CoreMinimal.h"
 #include "Components/ActorComponent.h"
+#include "Components/PrimitiveComponent.h"
 #include "Engine/World.h"
 #include "GameFramework/PlayerController.h"
 #include "GameFramework/Actor.h"
 #include "Engine/TriggerVolume.h"
-
 #include "OpenDoor.generated.h"
 
+DECLARE_DYNAMIC_MULTICAST_DELEGATE(FDoorEvent);
 
 UCLASS( ClassGroup=(Custom), meta=(BlueprintSpawnableComponent) )
 class BUILDINGESCAPE_API UOpenDoor : public UActorComponent
@@ -20,34 +21,32 @@ class BUILDINGESCAPE_API UOpenDoor : public UActorComponent
 public:	
 	// Sets default values for this component's properties
 	UOpenDoor();
+
+	UPROPERTY(BlueprintAssignable)
+		FDoorEvent OnOpen;
+	UPROPERTY(BlueprintAssignable)
+		FDoorEvent OnClose;
+
 protected:
 	// Called when the game starts
 	virtual void BeginPlay() override;
-
-	void OpenDoor();
 
 public:	
 	// Called every frame
 	virtual void TickComponent(float DeltaTime, ELevelTick TickType, FActorComponentTickFunction* ThisTickFunction) override;
 
-	void CloseDoor();
 
 private:
 	UPROPERTY(EditAnywhere)
 	ATriggerVolume* pressurePlate = nullptr;
 	
-	UPROPERTY(EditAnywhere)
-	float doorCloseDelay = 1.f;
-	float lastDoorOpenTime;
-
 	AActor* owner = nullptr;
-	AActor* player = nullptr;
 	FRotator openRotation;
 	FRotator closeRotation;
 
 	UPROPERTY(EditAnywhere)
-	float doorAngle = 90.f;
+		float requiredWeight = 10.f;
 
-	UPROPERTY(EditAnywhere)
-	bool reverseOpenAngle = false;
+
+	float GetTotalMassOfActorsOnPlate() const;
 };

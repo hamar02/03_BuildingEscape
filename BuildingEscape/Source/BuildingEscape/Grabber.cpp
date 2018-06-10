@@ -19,7 +19,7 @@ UGrabber::UGrabber()
 void UGrabber::BeginPlay()
 {
 	Super::BeginPlay();
-
+	
 	// ...
 	FindPhysicsHandle();
 	FindInputComponent();
@@ -42,10 +42,7 @@ void UGrabber::FindInputComponent()
 void UGrabber::FindPhysicsHandle()
 {
 	physicsHandle = GetOwner()->FindComponentByClass<UPhysicsHandleComponent>();
-	if (physicsHandle) {
-		UE_LOG(LogTemp, Warning, TEXT("physicsHandle was found on %s"), *GetOwner()->GetName());
-	}
-	else {
+	if (physicsHandle==nullptr) {
 		UE_LOG(LogTemp, Error, TEXT("physicsHandle is missing on %s"), *GetOwner()->GetName());
 	}
 }
@@ -57,13 +54,9 @@ void UGrabber::TickComponent(float DeltaTime, ELevelTick TickType, FActorCompone
 	Super::TickComponent(DeltaTime, TickType, ThisTickFunction);
 
 	// ...
+	if (!physicsHandle) { return; }
 
-
-
-	FVector location;
-	FRotator rotation;
-	GetWorld()->GetFirstPlayerController()->GetPlayerViewPoint(OUT location, OUT rotation);
-	FVector lineTraceEnd = location + rotation.Vector()*reach;
+	FVector lineTraceEnd = GetReachLineEnd();
 
 	if (physicsHandle->GrabbedComponent) {
 		physicsHandle->SetTargetLocation(lineTraceEnd);
@@ -92,14 +85,9 @@ void UGrabber::Release()
 FHitResult UGrabber::GetFirstPhysicsBodyInReach() const
 {
 	FHitResult result;
-
-	FVector location;
-	FRotator rotation;
-	GetWorld()->GetFirstPlayerController()->GetPlayerViewPoint(OUT location, OUT rotation);
-
-
-	FVector lineTraceEnd = location + rotation.Vector()*reach;
-
+	FVector lineTraceEnd = GetReachLineEnd();
+	FVector location = GetReachLineStart();
+	
 
 	FCollisionQueryParams params(FName(TEXT("")), false, GetOwner());
 
@@ -115,5 +103,23 @@ FHitResult UGrabber::GetFirstPhysicsBodyInReach() const
 	}
 
 	return result;
+}
+
+FVector UGrabber::GetReachLineEnd() const
+{
+	FVector location;
+	FRotator rotation;
+	GetWorld()->GetFirstPlayerController()->GetPlayerViewPoint(OUT location, OUT rotation);
+	return location + rotation.Vector()*reach;
+
+}
+
+FVector UGrabber::GetReachLineStart() const
+{
+	FVector location;
+	FRotator rotation;
+	GetWorld()->GetFirstPlayerController()->GetPlayerViewPoint(OUT location, OUT rotation);
+
+	return location;
 }
 

@@ -13,9 +13,16 @@ PRAGMA_DISABLE_DEPRECATION_WARNINGS
 #endif
 #define BUILDINGESCAPE_OpenDoor_generated_h
 
-#define BuildingEscape_Source_BuildingEscape_OpenDoor_h_18_RPC_WRAPPERS
-#define BuildingEscape_Source_BuildingEscape_OpenDoor_h_18_RPC_WRAPPERS_NO_PURE_DECLS
-#define BuildingEscape_Source_BuildingEscape_OpenDoor_h_18_INCLASS_NO_PURE_DECLS \
+#define BuildingEscape_Source_BuildingEscape_OpenDoor_h_14_DELEGATE \
+static inline void FDoorEvent_DelegateWrapper(const FMulticastScriptDelegate& DoorEvent) \
+{ \
+	DoorEvent.ProcessMulticastDelegate<UObject>(NULL); \
+}
+
+
+#define BuildingEscape_Source_BuildingEscape_OpenDoor_h_19_RPC_WRAPPERS
+#define BuildingEscape_Source_BuildingEscape_OpenDoor_h_19_RPC_WRAPPERS_NO_PURE_DECLS
+#define BuildingEscape_Source_BuildingEscape_OpenDoor_h_19_INCLASS_NO_PURE_DECLS \
 private: \
 	static void StaticRegisterNativesUOpenDoor(); \
 	friend BUILDINGESCAPE_API class UClass* Z_Construct_UClass_UOpenDoor(); \
@@ -25,7 +32,7 @@ public: \
 	enum {IsIntrinsic=COMPILED_IN_INTRINSIC};
 
 
-#define BuildingEscape_Source_BuildingEscape_OpenDoor_h_18_INCLASS \
+#define BuildingEscape_Source_BuildingEscape_OpenDoor_h_19_INCLASS \
 private: \
 	static void StaticRegisterNativesUOpenDoor(); \
 	friend BUILDINGESCAPE_API class UClass* Z_Construct_UClass_UOpenDoor(); \
@@ -35,7 +42,7 @@ public: \
 	enum {IsIntrinsic=COMPILED_IN_INTRINSIC};
 
 
-#define BuildingEscape_Source_BuildingEscape_OpenDoor_h_18_STANDARD_CONSTRUCTORS \
+#define BuildingEscape_Source_BuildingEscape_OpenDoor_h_19_STANDARD_CONSTRUCTORS \
 	/** Standard constructor, called after all reflected properties have been initialized */ \
 	NO_API UOpenDoor(const FObjectInitializer& ObjectInitializer); \
 	DEFINE_DEFAULT_OBJECT_INITIALIZER_CONSTRUCTOR_CALL(UOpenDoor) \
@@ -48,7 +55,7 @@ private: \
 public:
 
 
-#define BuildingEscape_Source_BuildingEscape_OpenDoor_h_18_ENHANCED_CONSTRUCTORS \
+#define BuildingEscape_Source_BuildingEscape_OpenDoor_h_19_ENHANCED_CONSTRUCTORS \
 private: \
 	/** Private move- and copy-constructors, should never be used */ \
 	NO_API UOpenDoor(UOpenDoor&&); \
@@ -59,32 +66,30 @@ DEFINE_VTABLE_PTR_HELPER_CTOR_CALLER(UOpenDoor); \
 	DEFINE_DEFAULT_CONSTRUCTOR_CALL(UOpenDoor)
 
 
-#define BuildingEscape_Source_BuildingEscape_OpenDoor_h_18_PRIVATE_PROPERTY_OFFSET \
+#define BuildingEscape_Source_BuildingEscape_OpenDoor_h_19_PRIVATE_PROPERTY_OFFSET \
 	FORCEINLINE static uint32 __PPO__pressurePlate() { return STRUCT_OFFSET(UOpenDoor, pressurePlate); } \
-	FORCEINLINE static uint32 __PPO__doorCloseDelay() { return STRUCT_OFFSET(UOpenDoor, doorCloseDelay); } \
-	FORCEINLINE static uint32 __PPO__doorAngle() { return STRUCT_OFFSET(UOpenDoor, doorAngle); } \
-	FORCEINLINE static uint32 __PPO__reverseOpenAngle() { return STRUCT_OFFSET(UOpenDoor, reverseOpenAngle); }
+	FORCEINLINE static uint32 __PPO__requiredWeight() { return STRUCT_OFFSET(UOpenDoor, requiredWeight); }
 
 
-#define BuildingEscape_Source_BuildingEscape_OpenDoor_h_15_PROLOG
-#define BuildingEscape_Source_BuildingEscape_OpenDoor_h_18_GENERATED_BODY_LEGACY \
+#define BuildingEscape_Source_BuildingEscape_OpenDoor_h_16_PROLOG
+#define BuildingEscape_Source_BuildingEscape_OpenDoor_h_19_GENERATED_BODY_LEGACY \
 PRAGMA_DISABLE_DEPRECATION_WARNINGS \
 public: \
-	BuildingEscape_Source_BuildingEscape_OpenDoor_h_18_PRIVATE_PROPERTY_OFFSET \
-	BuildingEscape_Source_BuildingEscape_OpenDoor_h_18_RPC_WRAPPERS \
-	BuildingEscape_Source_BuildingEscape_OpenDoor_h_18_INCLASS \
-	BuildingEscape_Source_BuildingEscape_OpenDoor_h_18_STANDARD_CONSTRUCTORS \
+	BuildingEscape_Source_BuildingEscape_OpenDoor_h_19_PRIVATE_PROPERTY_OFFSET \
+	BuildingEscape_Source_BuildingEscape_OpenDoor_h_19_RPC_WRAPPERS \
+	BuildingEscape_Source_BuildingEscape_OpenDoor_h_19_INCLASS \
+	BuildingEscape_Source_BuildingEscape_OpenDoor_h_19_STANDARD_CONSTRUCTORS \
 public: \
 PRAGMA_ENABLE_DEPRECATION_WARNINGS
 
 
-#define BuildingEscape_Source_BuildingEscape_OpenDoor_h_18_GENERATED_BODY \
+#define BuildingEscape_Source_BuildingEscape_OpenDoor_h_19_GENERATED_BODY \
 PRAGMA_DISABLE_DEPRECATION_WARNINGS \
 public: \
-	BuildingEscape_Source_BuildingEscape_OpenDoor_h_18_PRIVATE_PROPERTY_OFFSET \
-	BuildingEscape_Source_BuildingEscape_OpenDoor_h_18_RPC_WRAPPERS_NO_PURE_DECLS \
-	BuildingEscape_Source_BuildingEscape_OpenDoor_h_18_INCLASS_NO_PURE_DECLS \
-	BuildingEscape_Source_BuildingEscape_OpenDoor_h_18_ENHANCED_CONSTRUCTORS \
+	BuildingEscape_Source_BuildingEscape_OpenDoor_h_19_PRIVATE_PROPERTY_OFFSET \
+	BuildingEscape_Source_BuildingEscape_OpenDoor_h_19_RPC_WRAPPERS_NO_PURE_DECLS \
+	BuildingEscape_Source_BuildingEscape_OpenDoor_h_19_INCLASS_NO_PURE_DECLS \
+	BuildingEscape_Source_BuildingEscape_OpenDoor_h_19_ENHANCED_CONSTRUCTORS \
 private: \
 PRAGMA_ENABLE_DEPRECATION_WARNINGS
 
